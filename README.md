@@ -31,15 +31,4 @@ docker run -p 8501:8501 streamlit-app
 
 Open http://localhost:8501 in your browser.
 
-🧾 Project Structure
-
-pa-tech-lead-recr-task/
-├\.venv 
-├\data 
-├\pages 
-├\Dockerfile 
-├\input.py 
-├\Main.py 
-├\README.md 
-├\requirements.txt 
-├\Task_Readme.md
+P.S. I am terrible at documentation. Sorry.
