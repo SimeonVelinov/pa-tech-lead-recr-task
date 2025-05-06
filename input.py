@@ -89,7 +89,9 @@ def normalize_dataframes():
     return normalized_data
 
 output = normalize_dataframes()
-print(output['2018'][output['2018']['Country']=='United Arab Emirates'])
+
+#There are more inconsistencies in the data, that produce issues in display it, but I didn't feel like dropping all the data
+#for a country is justified, only because a column is left empty, so I have avoided the issue in this version.
 def check_ranking():
     data = normalize_dataframes()
 

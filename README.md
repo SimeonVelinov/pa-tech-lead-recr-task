@@ -1,85 +1,45 @@
-# 🌍 World Happiness Dashboard
+# PA Tech Lead Task Streamlit app
 
-Welcome!
+A streamlit webapp that lets the user explore the world happiness report data.
+The app has several pages that allow for visualization of the data in different ways.
 
-This take-home assignment is designed to help us understand your Python, data wrangling, and lightweight app-building skills. It's based on the **World Happiness Report** dataset and is intended to be practical, open-ended, and fun.
+---
 
-## 🎯 Objective
+## 📦 Clone the Repository
+git clone https://github.com/SimeonVelinov/pa-tech-lead-recr-task
 
-Build an interactive [Streamlit app](https://streamlit.io/) that allows users to explore and compare happiness metrics across countries and years.
+▶️ Run Locally
 
-You'll use the World Happiness dataset and [Pandas](https://pandas.pydata.org) + Streamlit to:
-- Load and clean the data
-- Visualize happiness scores across countries, regions, and time
-- Allow simple filtering and exploration
+Make sure you have Python 3.8+ and pip installed.
+1. Create a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
+2. Install dependencies
+pip install -r requirements.txt
 
-## 🗃️ Dataset
+3. Start the Streamlit app
+streamlit run Main.py
+The app will open in your browser at http://localhost:8501.
 
-The World Happiness data is available in the /data folder of this repository as individual per year csv files that hold happines KPIs. 
+🐳 Run with Docker
+1. Build the Docker image
+docker build -t streamlit-app .
 
-## 📌 Features (Minimum)
+2. Run the Docker container
+docker run -p 8501:8501 streamlit-app
 
-Your Streamlit app should allow the user to:
+Open http://localhost:8501 in your browser.
 
-1. **Select a year** (if using multi-year data)
-2. **Filter by region** or country
-3. **View happiness rankings**
-   - Display top N happiest countries
-   - Display bottom N countries
-4. **Plot correlations** between score components and happiness score
+🧾 Project Structure
 
-Bonus:
-- Time trend visualizations (if using multi-year)
-- Display (your) statistical insights (e.g., "most influential factor")
-- Add explanations or hover-tooltips for variables
-- Change the default color scheme to something that you like.
-- Do a multi-page app.
-
-## 🛠️ Tech Requirements
-
-- Python 3.9 - 3.11
-- Pandas
-- Streamlit
-- Any data viz libs you're comfortable with (Matplotlib, Seaborn, Plotly, etc.)
-- At minimum, have a requirements.txt file and a README.md files that explain how to run your app locally.
-
-## 📦 Submission Guidelines
-
-Please share a GitHub repo or a zipped folder containing:
-
-- Your source code as Python scripts
-- `README.md` with setup instructions
-- `requirements.txt` for dependencies
-- Bonus: `Dockerfile` if you'd like to show deployment readiness (optional)
-- Bonus: Use an environment manager, such as [uv](https://docs.astral.sh/uv/guides/install-python)
-- Bonus: Figure out how to host your app publicly without paying any money.
-
-
-## ⏱️ Timeline
-Submissions are valid if the following criteria are completed - No longer than 7 callendar days after you're given access to this repo:
-- A solution needs to be submitted to your own github repository (unless a zip file is to be delivered.)
-- An email, informing Ivelin.Hristov@ipsos.com and HR.bulgaria@ipsos.com about the submission is sent through.
-- No changes or submissions will be accepted after this period.
-
-Pro tip: Focus on clarity, completeness, and pragmatism over perfection.
-
-## ✅ Evaluation Criteria
-
-We'll evaluate your submission based on:
-
-| Criteria                | Weight |
-|-------------------------|--------|
-| Code quality (clean, modular, readable) | ⭐⭐⭐⭐ |
-| Data handling & transformations | ⭐⭐⭐ |
-| Streamlit UI design & interactivity | ⭐⭐⭐ |
-| Visualizations & insights | ⭐⭐⭐ |
-| Self documentation & usability | ⭐⭐ |
-| Initiative & extras (bonus features, design, etc.) | ⭐⭐ |
-
-## 🙌 Good Luck!
-
-We’re excited to see how you explore this data and build an app. If you’d like to explain or highlight any part of your approach, feel free to leave a note in the README or as code comments.
-
-Happy coding!  
-— The PA Tech Team
+pa-tech-lead-recr-task/
+├\.venv 
+├\data 
+├\pages 
+├\Dockerfile 
+├\input.py 
+├\Main.py 
+├\README.md 
+├\requirements.txt 
+├\Task_Readme.md
