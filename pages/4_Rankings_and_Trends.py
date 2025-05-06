@@ -19,14 +19,12 @@ st.dataframe(df.nsmallest(top_n, 'Score')[['Country', 'Score']])
 
 st.markdown("### Score Trends Over Years")
 regions = sorted({c for d in data.values() for c in d['Region']})
-region_select = st.sidebar.multiselect("Regions to Track", ['All'] + regions, default=['All'])
+region_select = st.sidebar.multiselect("Regions to Track", regions, default=[])
 
-if "All" in region_select and len(region_select) == 1 or len(region_select) == 0:
+if len(region_select) == 0:
     region_select = regions
-if "All" in region_select and len(region_select) > 1:
-    region_select.remove('All')
 
-if not region_select == 'All':
+if not len(region_select) == len(regions):
     countries = sorted({
         row['Country']
         for df in data.values()
@@ -35,19 +33,17 @@ if not region_select == 'All':
     })
 else:
     countries = sorted({c for d in data.values() for c in d['Country']})
-selection = st.sidebar.multiselect("Countries to Track", ['All'] + countries, default=[])
+selection = st.sidebar.multiselect("Countries to Track", countries, default=[])
 
-if "All" in selection and len(selection)==1 or len(selection)==0:
+if len(selection)==0:
     selection = countries
-if "All" in selection and len(selection)>1:
-    selection.remove('All')
 
 if selection:
     trend_df = []
     for y, d in data.items():
         for c in selection:
             row = d[d['Country'] == c]
-            if not row.empty and not row[row['Region'].isin(region_select)].empty or region_select == ['All']:
+            if not row.empty and not row[row['Region'].isin(region_select)].empty or len(region_select) == len(regions):
                 row = row[['Country', 'Score']].copy()
                 row["Year"] = y
                 trend_df.append(row)

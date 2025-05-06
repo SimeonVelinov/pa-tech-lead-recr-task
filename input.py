@@ -89,7 +89,7 @@ def normalize_dataframes():
     return normalized_data
 
 output = normalize_dataframes()
-
+print(output['2018'][output['2018']['Country']=='United Arab Emirates'])
 def check_ranking():
     data = normalize_dataframes()
 

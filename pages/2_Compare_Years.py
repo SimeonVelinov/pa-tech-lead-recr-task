@@ -12,15 +12,13 @@ if len(years) < 2:
 
 filtered = {year: df.copy() for year, df in data.items() if year in years}
 common_countries = set.intersection(*[set(df['Country']) for df in filtered.values()])
-selection = st.sidebar.multiselect("Select Countries", ["All"] + sorted(common_countries), default=["All"])
+selection = st.sidebar.multiselect("Select Countries", sorted(common_countries), default=[])
 
 st.title("📊 Compare Happiness Across Years")
 
-if "All" in selection and len(selection)==1:
+if len(selection) == 0:
     selection = common_countries
-if "All" in selection and len(selection)>1:
-    selection.remove('All')
-if len(selection)<2:
+if 2 > len(selection) > 0:
     st.warning("Select at least two countries to compare.")
     st.stop()
 
@@ -32,5 +30,5 @@ for year, df in filtered.items():
     combined.append(df)
 df_all = pd.concat(combined)
 
-fig = px.scatter(df_all, x="Country", y="Score", color="Region", size="Dystopia", facet_col="Year", log_y=True, hover_name="Country")
+fig = px.scatter(df_all, x="Country", y="Score", color="Region", size="GDP per capita", facet_col="Year", log_y=True, hover_name="Country")
 st.plotly_chart(fig, use_container_width=True)

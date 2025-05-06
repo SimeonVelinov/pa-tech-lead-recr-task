@@ -14,11 +14,9 @@ if region != "All":
     df = df[df['Region'] == region]
 
 common_countries = sorted(df['Country'].unique())
-selection = st.sidebar.multiselect("Select Countries", ["All"] + common_countries, default=[])
-if "All" in selection and len(selection)==1 or len(selection)==0:
+selection = st.sidebar.multiselect("Select Countries", common_countries, default=[])
+if len(selection)==0:
     selection = common_countries
-if "All" in selection and len(selection)>1:
-    selection.remove('All')
 
 df = df[df["Country"].isin(selection)]
 
